@@ -2,7 +2,11 @@ import React from 'react'
 import {Fragment} from 'react'
 import {Container} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
-// this is the gameBoard where questions/categories go
+
+// import the Sub-components of the gameboard
+import Category from './Category'
+import Scoreboard from './Scoreboard'
+import Question from './Question'
 
 class Gameboard extends React.Component {
   constructor(props) {
@@ -12,9 +16,12 @@ class Gameboard extends React.Component {
     }
   }
 
+  
   render(){
     return (
-      <div></div>
+      <Container>
+
+      </Container>
     )
   }
   }
