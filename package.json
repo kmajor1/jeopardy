@@ -24,9 +24,13 @@
   },
   "homepage": "https://github.com/kmajor1/jeopardy#readme",
   "dependencies": {
+    "antd": "^3.15.0",
     "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "if-env": "^1.0.4",
     "mongoose": "^5.4.17"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.11.0"
   }
 }
