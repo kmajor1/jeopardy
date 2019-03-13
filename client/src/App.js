@@ -14,11 +14,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Container>
+        
           {/* we should organize this in some sort of grid */}
           <Gameboard round={this.state.round} />
           
-        </Container>
+        
       </div>
     );
   }
