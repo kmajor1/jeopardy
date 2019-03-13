@@ -5,7 +5,6 @@ import {Button} from 'react-bootstrap'
 
 // import the Sub-components of the gameboard
 import Category from './Category'
-import Scoreboard from './Scoreboard'
 import Question from './Question'
 
 // import the css 
