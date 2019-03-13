@@ -5,7 +5,7 @@ import {Button} from 'react-bootstrap'
 
 // import the Sub-components of the gameboard
 import Category from './Category'
-import Scoreboard from './Scoreboard'
+import ScoreBoard from './ScoreBoard'
 import Question from './Question'
 
 class Gameboard extends React.Component {
