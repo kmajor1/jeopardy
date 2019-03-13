@@ -21,15 +21,15 @@ class Gameboard extends React.Component {
   
   render(){
     return (
-      <Container>
+      
         <table>
           <Category {...this.props} >Politics</Category>
           <Category {...this.props}>Sports</Category>
           <Category {...this.props}>Entertainment</Category>
-          <Category {...this.props}>Why PCs Suck</Category>
-          <Category {...this.props}>Why John's PC Sucks</Category>
+          <Category {...this.props}>Stuff</Category>
+          <Category {...this.props}>Stuff 2</Category>
         </table>
-      </Container>
+      
     )
   }
   }

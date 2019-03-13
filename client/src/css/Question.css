@@ -1,0 +1,11 @@
+
+
+.question-tile  {
+  background: linear-gradient(to top left, #000088, #0000ff);
+  color: white; 
+  justify-content: center;
+  display: flex;
+  align-items: center; 
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 3.0vw;
+}
