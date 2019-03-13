@@ -3,7 +3,6 @@ import {Container} from 'react-bootstrap'
 import './App.css';
 
 import Gameboard from './components/Gameboard'
-import Scoreboard from './components/Scoreboard'
 
 class App extends Component {
   constructor(props){
