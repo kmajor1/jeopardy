@@ -1,0 +1,19 @@
+table {
+  border-collapse: collapse;
+  width: 100%; 
+  
+}
+
+tr {
+  display: block;
+  float: left;
+  width: Calc(100%/5);
+  
+}
+
+th,
+td {
+  display: block;
+  border: 1px solid black;
+  height: Calc(100vh/6);
+}
