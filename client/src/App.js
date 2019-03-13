@@ -8,15 +8,17 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      round: 2
+      doubleJeopardy: false,
+      isStarted: false 
     }
   }
+
   render() {
     return (
       <div className="App">
         
           {/* we should organize this in some sort of grid */}
-          <Gameboard round={this.state.round} />
+          <Gameboard doubleJeopardy={this.state.doubleJeopardy} />
           
         
       </div>
