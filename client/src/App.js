@@ -20,7 +20,7 @@ class App extends Component {
         
           {/* we should organize this in some sort of grid */}
           
-          <Route  path='/' render={(props) => (<Gameboard {...props}  doubleJeopardy={this.state.doubleJeopardy}  />)} />
+          <Route exact path='/' render={(props) => (<Gameboard {...props}  doubleJeopardy={this.state.doubleJeopardy}  />)} />
           <Route  path='/hello' component={Test} />
           
           

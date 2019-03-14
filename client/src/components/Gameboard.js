@@ -19,10 +19,13 @@ class Gameboard extends React.Component {
     }
   }
 
+  
+
   componentDidMount(){
-    // const categories will be replaced by an API call that returns a set of categories
-    // from our back-end 
-    const categories = ['Politics','Sports','Movies','Music','Apple']
+    // call API.getCategories which would call our backend 
+    // backend would call jService and ask for 5 random categories 
+    // would return them here 
+    const categories = ['Soccer','Sports','Movies','Music','Apple']
     // set the state of the gameboard to the categories 
     this.setState({categories: categories}) 
      
