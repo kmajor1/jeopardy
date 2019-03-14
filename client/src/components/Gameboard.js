@@ -34,8 +34,10 @@ class Gameboard extends React.Component {
     return (
       
         <table>
+          <tbody>
           {/* inline function that maps the the categories array in state */}
-          {this.state.categories.map((value,index) => (<Category {...this.props}>{value}</Category>))}
+          {this.state.categories.map((value,index) => (<Category key={index} {...this.props}>{value}</Category>))}
+          </tbody>
         </table>
       
     )

@@ -12,12 +12,11 @@ class Question extends React.Component {
     }
   }
   render(){
-    const hidden = <div>
+    const hidden = <Fragment>
       <td className="question-tile">{this.props.children}</td>
-    </div>
-    const revealed = <div>
-      <td className="question-tile">{this.props.question}</td>
-    </div>
+    </Fragment>
+    const revealed = <div>Test</div>
+    
 
     return (
       this.state.notClicked ? hidden : revealed
