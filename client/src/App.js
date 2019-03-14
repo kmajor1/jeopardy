@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Container} from 'react-bootstrap'
-import './App.css';
-
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import Test from './components/Test'
+import './App.css'
 import Gameboard from './components/Gameboard'
 
 class App extends Component {
@@ -15,13 +15,18 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
       <div className="App">
         
           {/* we should organize this in some sort of grid */}
-          <Gameboard doubleJeopardy={this.state.doubleJeopardy} />
+          
+          <Route exact path='/' render={(props) => (<Gameboard {...props}  doubleJeopardy={this.state.doubleJeopardy}  />)} />
+          <Route  path='/hello' component={Test} />
+          
           
         
       </div>
+      </Router>
     );
   }
 }
