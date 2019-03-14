@@ -14,20 +14,28 @@ class Gameboard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isStarted: false 
+      isStarted: false,
+      categories: []
     }
   }
 
+  componentDidMount(){
+    // const categories will be replaced by an API call that returns a set of categories
+    // from our back-end 
+    const categories = ['Politics','Sports','Movies','Music','Apple']
+    // set the state of the gameboard to the categories 
+    this.setState({categories: categories}) 
+     
+  }
+
+  
   
   render(){
     return (
       
         <table>
-          <Category {...this.props} >Politics</Category>
-          <Category {...this.props}>Sports</Category>
-          <Category {...this.props}>Entertainment</Category>
-          <Category {...this.props}>Stuff</Category>
-          <Category {...this.props}>Stuff 2</Category>
+          {/* inline function that maps the the categories array in state */}
+          {this.state.categories.map((value,index) => (<Category {...this.props}>{value}</Category>))}
         </table>
       
     )
