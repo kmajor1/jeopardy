@@ -1,0 +1,35 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "jeopardy-20190313212520-authRole",
+			"UnauthRoleArn": "arn:aws:iam::197291881532:role/jeopardy-20190313212520-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::197291881532:role/jeopardy-20190313212520-authRole",
+			"Region": "us-east-2",
+			"DeploymentBucketName": "jeopardy-20190313212520-deployment",
+			"UnauthRoleName": "jeopardy-20190313212520-unauthRole",
+			"StackName": "jeopardy-20190313212520",
+			"StackId": "arn:aws:cloudformation:us-east-2:197291881532:stack/jeopardy-20190313212520/08972580-45f8-11e9-9945-02649197f7a0"
+		}
+	},
+	"auth": {
+		"cognito94270090": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/jeopardy-20190313212520-deployment/amplify-cfn-templates/auth/cognito94270090-cloudformation-template.yml",
+				"logicalId": "authcognito94270090"
+			},
+			"lastPushTimeStamp": "2019-03-14T01:30:41.938Z",
+			"output": {
+				"AppClientSecret": "7utin39jk57qajvrtbdoofmhftirh686eqakv25u429ot3iispq",
+				"UserPoolId": "us-east-2_s0tRtqBNS",
+				"AppClientIDWeb": "3b8ar6tvr9l75hat4a0a0lbi57",
+				"AppClientID": "385dr12e9vbgibepqap282riti",
+				"IdentityPoolId": "us-east-2:d9f759f4-7dc3-412d-a3fe-f8aa1e9425ca",
+				"IdentityPoolName": "cognito94270090_identitypool_94270090__dev",
+				"UserPoolName": "cognito94270090_userpool_94270090"
+			},
+			"lastPushDirHash": "lsNeXYox1jah39q33usz0v2ODZA="
+		}
+	}
+}
