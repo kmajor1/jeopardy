@@ -19,7 +19,7 @@ class Gameboard extends React.Component {
         {
           Category: 'GUINNESS RECORDS',
           tiles: [
-            { question: '', answer: '1' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
+            { question: `Working with more than 4.5 million donors, this American org. is the world's largest blood provider`, answer: 'The Red Cross' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
           ]
 
         },
