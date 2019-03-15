@@ -9,17 +9,21 @@ class Category extends React.Component {
   constructor(props){
     super(props)
     this.state = {
+      
 
     }
   }
+
+  
  
 
   render(){
+    const {showQuestion} = this.props
     return (
       <Fragment>
         <tr>
           <td className="question-tile">{this.props.children}</td>
-          { (this.props.doubleJeopardy === false) ? jeopardy.map((value,index) => <Question key={index} >{value}</Question>) : doubleJeopardy.map((value,index)=> <Question>{value}</Question>)}
+          {this.props.tiles.map((value,index) => (<Question key={index} question={value.question} showQuestion={showQuestion}>{this.props.doubleJeopardy ? doubleJeopardy[index] : jeopardy[index]}</Question>))}
           
         </tr>
       </Fragment>
