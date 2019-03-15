@@ -1,0 +1,10 @@
+.question-full {
+  background: linear-gradient(to top left, #000088, #0000ff);
+  color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  height: 100vh;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  font-size: 4vw; 
+}
