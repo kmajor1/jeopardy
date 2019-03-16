@@ -2,7 +2,7 @@ import axios from 'axios' // this might not be needed
 
 export default {
   initGame: (category, doubleJeopardy) => {
-    // calls back-end to get categories 
+    return axios.get("/api/category");
   },
 
   loadBoard: (categories) => {

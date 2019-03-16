@@ -1,0 +1,19 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "jeopardy-20190316171245-authRole",
+            "UnauthRoleArn": "arn:aws:iam::197291881532:role/jeopardy-20190316171245-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::197291881532:role/jeopardy-20190316171245-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "jeopardy-20190316171245-deployment",
+            "UnauthRoleName": "jeopardy-20190316171245-unauthRole",
+            "StackName": "jeopardy-20190316171245",
+            "StackId": "arn:aws:cloudformation:us-east-2:197291881532:stack/jeopardy-20190316171245/3f3c0940-4830-11e9-bb37-02a97d686044"
+        },
+        "categories": {
+            "auth": {
+                "cognito4ea07ad2": {}
+            }
+        }
+    }
+}

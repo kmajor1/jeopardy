@@ -3,6 +3,12 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import QuestionReveal from './components/QuestionReveal'
 import './App.css'
 import Gameboard from './components/Gameboard'
+import Amplify from 'aws-amplify';
+import awsmobile from './aws-exports';
+import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
+
+Amplify.configure(awsmobile);
+
 
 class App extends Component {
   constructor(props){
@@ -25,9 +31,10 @@ class App extends Component {
           
         
       </div>
+      
       </Router>
     );
   }
 }
 
-export default App;
+export default withAuthenticator(App, true);
