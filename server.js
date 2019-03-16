@@ -5,6 +5,7 @@ const app = express();
 
 // import mongoose 
 const mongoose = require('mongoose');
+const db = require('./models');
 
 
 // Serve up static assets (usually on heroku)
@@ -14,6 +15,8 @@ if (process.env.NODE_ENV === "production") {
 
 // connect to mongoose 
 mongoose.connect("mongodb://localhost/jeopardy", { useNewUrlParser: true });
+// try and create a 'game' 
+
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
