@@ -1,0 +1,16 @@
+table {
+  border-collapse: collapse;
+  width: 100%; 
+  
+}
+
+tr {
+  float: left;
+  width: Calc(100%/5);
+  
+}
+
+th,
+td {
+  height: Calc(100vh/6);
+}

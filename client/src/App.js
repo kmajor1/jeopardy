@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
-import {Container} from 'react-bootstrap'
-import './App.css';
-
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import QuestionReveal from './components/QuestionReveal'
+import './App.css'
 import Gameboard from './components/Gameboard'
-import Scoreboard from './components/ScoreBoard'
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      doubleJeopardy: false,
+      isStarted: false 
+    }
+  }
+
   render() {
     return (
+      <Router>
       <div className="App">
-        <Container>
-          <Gameboard />
-        </Container>
+        
+          {/* we should organize this in some sort of grid */}
+          
+          <Route exact path='/' render={(props) => (<Gameboard {...props}  doubleJeopardy={this.state.doubleJeopardy}  />)} />
+          
+          
+        
       </div>
+      </Router>
     );
   }
 }
