@@ -8,3 +8,7 @@
   align-items: center;
   font-size: 4vw; 
 }
+
+#inputHolder{
+  justify-content: center; 
+}

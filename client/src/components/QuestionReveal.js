@@ -1,5 +1,9 @@
 import React from 'react'
 import '../css/QuestionReveal.css'
+import AnswerInput from './AnswerInput';
+
+// import react bootstrap comps
+import {Row, Col, Container} from 'react-bootstrap'
 
 class QuestionReveal extends React.Component {
   constructor(props){
@@ -18,7 +22,20 @@ class QuestionReveal extends React.Component {
     const {answerQuestion} = this.props 
     return(
       <div className="question-full" onClick={answerQuestion}>
-       {this.props.currentQuestion}
+        <Container>
+        <Row>
+         <Col>
+          {this.props.currentQuestion}
+         </Col>
+       </Row>
+       <Row id="inputHolder">
+         <Col xs={6} >
+         <AnswerInput />
+         </Col>
+       </Row>
+       
+        </Container>
+       
       </div>
     )
   }
