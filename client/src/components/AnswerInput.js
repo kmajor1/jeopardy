@@ -13,7 +13,7 @@ class AnswerInput extends React.Component{
   render(){
     return (
       <div>
-        <Form>
+        <Form onSubmit>
           <Form.Control id="answerInput" type="text" placeholder="Trebek is waiting..." />
         </Form>
       </div>

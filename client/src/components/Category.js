@@ -23,7 +23,7 @@ class Category extends React.Component {
       <Fragment>
         <tr>
           <td className="question-tile">{this.props.children}</td>
-          {this.props.tiles.map((value,index) => (<Question key={index} question={value.question} showQuestion={showQuestion}>{this.props.doubleJeopardy ? doubleJeopardy[index] : jeopardy[index]}</Question>))}
+          {this.props.tiles.map((value,index) => (<Question key={index} question={value.question} showQuestion={showQuestion} answerQuestion={this.props.answerQuestion}>{this.props.doubleJeopardy ? doubleJeopardy[index] : jeopardy[index]}</Question>))}
           
         </tr>
       </Fragment>

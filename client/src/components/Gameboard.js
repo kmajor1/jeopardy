@@ -80,6 +80,7 @@ class Gameboard extends React.Component {
                 key={value.Category}
                 tiles={this.state.board[index].tiles}
                 showQuestion={this.showQuestion}
+                answerQuestion={this.answerQuestion}
                 {...this.props}>
                 {value.Category}
               </Category>))}

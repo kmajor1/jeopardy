@@ -13,15 +13,12 @@ class QuestionReveal extends React.Component {
     }
   }
 
-  onAnswer(){
-    // what happens when the user answers 
-
-  }
+  
 
   render(){
     const {answerQuestion} = this.props 
     return(
-      <div className="question-full" onClick={answerQuestion}>
+      <div className="question-full">
         <Container>
         <Row>
          <Col>
@@ -30,7 +27,7 @@ class QuestionReveal extends React.Component {
        </Row>
        <Row id="inputHolder">
          <Col xs={6} >
-         <AnswerInput />
+         <AnswerInput onAnswer={this.onAnswer} />
          </Col>
        </Row>
        
