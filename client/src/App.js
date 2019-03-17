@@ -5,6 +5,8 @@ import './App.css'
 import Gameboard from './components/Gameboard'
 import Amplify from 'aws-amplify';
 import awsmobile from './aws-exports';
+import Testbutton from './components/Testbutton'
+import API from "./components/utils/API";
 import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
 
 Amplify.configure(awsmobile);
@@ -29,7 +31,7 @@ class App extends Component {
           <Route exact path='/' render={(props) => (<Gameboard {...props}  doubleJeopardy={this.state.doubleJeopardy}  />)} />
           
           
-        
+        <Testbutton></Testbutton>
       </div>
       
       </Router>
