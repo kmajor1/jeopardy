@@ -2,7 +2,8 @@ import axios from 'axios' // this might not be needed
 
 export default {
   initGame: (category, doubleJeopardy) => {
-    // calls back-end to get categories 
+    console.log("initGame has been hit")
+    axios.get("/api/category");
   },
 
   loadBoard: (categories) => {

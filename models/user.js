@@ -2,11 +2,12 @@
  const Schema = mongoose.Schema;
 
  const userSchema = new Schema({
+     _id: Schema.Types.ObjectId,
      name: {type:String, required: true},
      gamesPlayed: {type:Number, required: true},
      userScore: {type:Number, required: true}
  });
 
- const Users = mongoose.model("User", userSchema);
+ const User = mongoose.model("User", userSchema);
 
- module.exports = Users;
+ module.exports = User;
