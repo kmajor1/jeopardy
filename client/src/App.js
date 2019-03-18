@@ -1,13 +1,16 @@
+
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import QuestionReveal from './components/QuestionReveal'
 import './App.css'
 import Gameboard from './components/Gameboard'
 import Amplify from 'aws-amplify';
-import awsmobile from './aws-exports';
 import Testbutton from './components/Testbutton'
 import API from "./components/utils/API";
 import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
+import awsmobile from './aws-exports'
+
+  
 
  Amplify.configure(awsmobile);
 
