@@ -9,7 +9,7 @@ import Testbutton from './components/Testbutton'
 import API from "./components/utils/API";
 import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
 
-Amplify.configure(awsmobile);
+ Amplify.configure(awsmobile);
 
 
 class App extends Component {
@@ -39,4 +39,6 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App, true);
+export default withAuthenticator(App, {
+  includeGreetings: false
+});
