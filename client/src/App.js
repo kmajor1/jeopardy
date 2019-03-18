@@ -12,7 +12,8 @@ import awsmobile from './aws-exports'
 
   
 
- Amplify.configure(awsmobile);
+
+Amplify.configure(awsmobile);
 
 
 class App extends Component {
@@ -42,6 +43,4 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App, {
-  includeGreetings: false
-});
+export default App 
