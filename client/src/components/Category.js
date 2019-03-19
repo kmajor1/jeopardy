@@ -10,6 +10,7 @@ class Category extends React.Component {
     super(props)
     this.state = {
       
+      
 
     }
   }

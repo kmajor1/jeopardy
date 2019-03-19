@@ -16,18 +16,18 @@ class QuestionReveal extends React.Component {
   
 
   render(){
-    const {answerQuestion} = this.props 
+     
     return(
       <div className="question-full">
         <Container>
         <Row>
          <Col>
-          {this.props.currentQuestion}
+          {this.props.question}
          </Col>
        </Row>
        <Row id="inputHolder">
          <Col xs={6} >
-         <AnswerInput onAnswer={this.onAnswer} />
+         <AnswerInput onAnswer={this.props.answerQuestion} />
          </Col>
        </Row>
        
