@@ -14,6 +14,7 @@ router.get("/category", (req, res) => {
     }
     return categories
   })
+})
 
 
   router.get("/questions", (req, res) => {
@@ -53,7 +54,7 @@ router.get("/category", (req, res) => {
     .catch(err => res.status(422).json(err))
 
 
-});
+
 
 
 module.exports = router;
