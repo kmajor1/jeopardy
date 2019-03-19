@@ -2,6 +2,7 @@ const axios = require("axios");
 const router = require("express").Router();
 const category = require('../controllers/category')
 
+
 //
 
 router.get("/category", (req, res) => {
@@ -11,9 +12,14 @@ router.get("/category", (req, res) => {
     .then(response => {
     // loop through response and place data into a categories array 
     for (i = number; i < number + 5; i++) {
-      categories.push(response.data[i].id)
+      categories.push(response.data[i])
     }
     return categories
+  })
+  .then(response => category(response))
+  .then(response => {
+    console.log(response)
+    res.end()
   })
 })
 
@@ -29,9 +35,7 @@ router.get("/questions/:categoryID", (req, res) => {
       let tile = {}
       tile = response.data.clues[i]
       tiles.push(tile)
-      // console.log(response.data.clues[i].question + " question 1")
-      // console.log(response.data.clues[i].answer)
-      // console.log("---------------------------------------------")
+      
     }
     res.json(tiles)
   })

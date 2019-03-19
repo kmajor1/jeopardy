@@ -16,7 +16,7 @@ const add = function(categories){
   console.log(categoriesMongoose)
   // add to db 
   db.Category.create(categoriesMongoose)
-    .then((response) => console.log(response))
+    .then((response) => response)
 }
 
 module.exports = add 
