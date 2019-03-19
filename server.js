@@ -17,8 +17,12 @@ if (process.env.NODE_ENV === "production") {
 // Use apiRoutes
 app.use("/api", apiRoutes);
 
+// initiate the db
+const db = require('./models')
+db.
 // connect to mongoose 
 mongoose.connect("mongodb://localhost/jeopardy", { useNewUrlParser: true });
+// 
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
