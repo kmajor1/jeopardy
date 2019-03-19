@@ -74,6 +74,7 @@ class Gameboard extends React.Component {
     // check the answer by extracting only needed parts of answer 
     e.preventDefault()
     let correctAnswer = this.state.currentAnswer.replace(/<[^>]*>/g,'')
+    correctAnswer = correctAnswer.match(/[^\W_]+/)
     console.log(correctAnswer)
     // this.setState({boardView: true})
   }
