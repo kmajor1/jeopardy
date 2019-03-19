@@ -20,6 +20,17 @@ router.get("/category", (req, res) => {
 
 });
 
+router.get('/category/questions/:id', (req,res) => {
+  let questions = {
+    categoryId: req.params.id, 
+    questions: [
+      
+    ] 
+
+  }
+  res.json(questions)
+})
+
 router.get("/")
 
 module.exports = router;
