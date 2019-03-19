@@ -6,3 +6,6 @@ const boardSchema = Schema({
   game: {type: Schema.Types.ObjectId, ref: 'Game'},
   categories: [{type: Schema.Types.ObjectId, ref: 'Category'}]
 })
+
+const board = mongoose.model('Board',boardSchema)
+module.exports = board 
