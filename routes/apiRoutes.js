@@ -12,7 +12,7 @@ router.get("/category", (req, res) => {
       categories.push(response.data[i])
     }
     return categories
-  }).then(stored => console.log(stored))
+  }).then(stored => console.log(stored)) // instead of a console log here, pass response to a controller
     .catch(err => res.status(422).json(err));
 
 
