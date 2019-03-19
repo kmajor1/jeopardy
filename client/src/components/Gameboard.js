@@ -15,6 +15,7 @@ class Gameboard extends React.Component {
       isStarted: false,
       boardView: true,
       currentQuestion: {},
+      
       board: [
         {
           Category: 'GUINNESS RECORDS',
@@ -60,10 +61,11 @@ class Gameboard extends React.Component {
 
   }
 
-  showQuestion = (question) => (event) => {
+  showQuestion = (question,answer) => (event) => {
     this.setState({
       boardView: false,
-      currentQuestion: question
+      currentQuestion: question,
+      currentAnswer: answer 
     })
   }
 
