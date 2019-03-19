@@ -6,6 +6,7 @@ const apiRoutes = require("./routes/apiRoutes");
 
 // import mongoose 
 const mongoose = require('mongoose');
+const db = require('./models');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -19,6 +20,8 @@ app.use("/api", apiRoutes);
 
 // connect to mongoose 
 mongoose.connect("mongodb://localhost/jeopardy", { useNewUrlParser: true });
+// try and create a 'game' 
+
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {

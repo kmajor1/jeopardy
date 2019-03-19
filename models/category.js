@@ -3,6 +3,10 @@ const Schema = mongoose.Schema
 
 const categorySchema = new Schema({
   _id: Schema.Types.ObjectId,
+  jServiceID: {
+    type: String, 
+    required: true 
+  },
   category: {
     type: String, 
     required: true 
