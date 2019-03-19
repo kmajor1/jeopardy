@@ -55,10 +55,7 @@ router.get("/category", (req, res) => {
 
 });
 
-router.get('/category/questions/:id', (req,res) => {
-  
 
-  })
 
 router.get("/")
 
