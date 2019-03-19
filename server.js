@@ -21,10 +21,12 @@ if (process.env.NODE_ENV === "production") {
 // Use apiRoutes
 app.use("/api", apiRoutes);
 
+// initiate the db
+
 // connect to mongoose 
 mongoose.connect("mongodb://localhost/jeopardy", { useNewUrlParser: true });
 // try and create a category 
-db.Category.create({jServiceID: '1234', category: 'test'})
+db.Category.create({jServiceID: 11510, category: 'test'})
   .then(function(response){
     console.log(response)
   })
