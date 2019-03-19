@@ -9,7 +9,7 @@ router.get("/category", (req, res) => {
   var stored = axios.get("http://jservice.io/api/categories?count=100").then(response => {
 
     for (i = number; i < number + 5; i++) {
-      categories.push(response.data[i])
+      categories.push(response.data[i].id)
     }
     return categories
   }).then(stored => console.log(stored))
@@ -23,9 +23,3 @@ router.get("/")
 module.exports = router;
 
 
-let promiseResponse;
-let fourPackProducts = axios.get('URL').then(response => {
-  promiseResponse = response.data;
-  console.log(promiseResponse);
-  return promiseResponse;
-})
