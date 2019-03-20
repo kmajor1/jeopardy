@@ -16,6 +16,7 @@ class Gameboard extends React.Component {
       boardView: true,
       currentQuestion: '',
       currentAnswer: '',
+      currentQuestionValue: 0,
       
       board: [
         {
@@ -74,8 +75,20 @@ class Gameboard extends React.Component {
     // check the answer by extracting only needed parts of answer 
     e.preventDefault()
     let correctAnswer = this.state.currentAnswer.replace(/<[^>]*>/g,'')
-    correctAnswer = correctAnswer.match(/[^\W_]+/)
+    correctAnswer = correctAnswer.replace(/\s/g,'')
+    correctAnswer = correctAnswer.toLowerCase()
+    userStuff = userStuff.replace(/\s/g,'')
+    userStuff = userStuff.toLowerCase()
+
+    // correctAnswer = correctAnswer.match(/[^\W_]+/)
+    
+    if (correctAnswer === userStuff) {
+      alert('correct!')
+    }
+    console.log('the correct answer')
     console.log(correctAnswer)
+    console.log('the user input')
+    console.log(userStuff)
      this.setState({boardView: true})
   }
 
