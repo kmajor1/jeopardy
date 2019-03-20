@@ -21,7 +21,7 @@ class AnswerInput extends React.Component{
     return (
       <div>
         <Form onSubmit={ this.props.onAnswer(this.state.userInput)}>
-          <Form.Control id="answerInput" onChange={this.userInputHandler} type="text" placeholder="Trebek is waiting..." />
+          <Form.Control id="answerInput" autoComplete="new-password" value='' onChange={this.userInputHandler} type="text" placeholder="Trebek is waiting..." />
           <Form.Control id="submit" type="submit" className="d-none" />
         </Form>
       </div>

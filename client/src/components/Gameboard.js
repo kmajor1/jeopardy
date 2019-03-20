@@ -79,11 +79,12 @@ class Gameboard extends React.Component {
     correctAnswer = correctAnswer.toLowerCase()
     userStuff = userStuff.replace(/\s/g,'')
     userStuff = userStuff.toLowerCase()
-
-    // correctAnswer = correctAnswer.match(/[^\W_]+/)
     
     if (correctAnswer === userStuff) {
       alert('correct!')
+    }
+    else {
+      alert('WRONG!')
     }
     console.log('the correct answer')
     console.log(correctAnswer)
