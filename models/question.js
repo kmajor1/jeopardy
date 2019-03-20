@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const questionSchema = new Schema({
-  _id: Schema.Types.ObjectId, 
+  category: {type: Schema.Types.ObjectId, ref: 'Category'},
   question: {
     type: String, 
     required: true
