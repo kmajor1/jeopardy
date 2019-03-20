@@ -9,8 +9,7 @@ const categorySchema = new Schema({
   category: {
     type: String, 
     required: true 
-  },
-  questions: [{type: Schema.Types.ObjectId, ref: 'Question'}]
+  }
 })
 
 const category = mongoose.model('Category',categorySchema)

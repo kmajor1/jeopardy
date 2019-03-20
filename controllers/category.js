@@ -5,7 +5,7 @@ const db = require('../models')
 const add = function(categories){
   
   let categoriesMongoose = []
-  console.log(categories)
+ 
   // get rid of extraneous key
   for (var i = 0; i < categories.length; i++){
     let categoryMongoose = {}
@@ -13,10 +13,10 @@ const add = function(categories){
     categoryMongoose.category = categories[i].title 
     categoriesMongoose.push(categoryMongoose)
   }
-  console.log(categoriesMongoose)
+  // console.log(categoriesMongoose)
   // add to db 
   db.Category.create(categoriesMongoose)
-    .then((response) => response)
+    .then((response) => console.log(response))
 }
 
 module.exports = add 

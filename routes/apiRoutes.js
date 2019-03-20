@@ -1,6 +1,7 @@
 const axios = require("axios");
 const router = require("express").Router();
 const category = require('../controllers/category')
+const question = require('../controllers/questions')
 
 
 //
@@ -37,8 +38,8 @@ router.get("/questions/:categoryID", (req, res) => {
       tiles.push(tile)
       
     }
-    res.json(tiles)
-  })
+   return(tiles)
+  }).then(response => question(response))
   .catch(err => res.status(422).json(err))
 
 })
