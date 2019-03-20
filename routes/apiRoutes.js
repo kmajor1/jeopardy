@@ -1,25 +1,25 @@
 const axios = require("axios");
 const router = require("express").Router();
 const category = require('../controllers/category')
+const question = require('../controllers/questions')
 
 
 //
 
 router.get("/category", (req, res) => {
-  var number = Math.floor(Math.random() * 100 + 1) * 1;
+
   var categories = []
   axios.get("http://jservice.io/api/categories?count=100")
     .then(response => {
     // loop through response and place data into a categories array 
-    for (i = number; i < number + 5; i++) {
+    for (i = 0; i < 25; i++) {
       categories.push(response.data[i])
     }
     return categories
   })
   .then(response => category(response))
   .then(response => {
-    console.log(response)
-    res.end()
+  res.end()
   })
 })
 
@@ -37,8 +37,8 @@ router.get("/questions/:categoryID", (req, res) => {
       tiles.push(tile)
       
     }
-    res.json(tiles)
-  })
+   return(tiles)
+  }).then(response => question(response))
   .catch(err => res.status(422).json(err))
 
 })
