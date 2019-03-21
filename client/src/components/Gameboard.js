@@ -8,6 +8,7 @@ import API from './utils/API'
 
 // import the css 
 import '../css/gameboard.css'
+import Axios from 'axios';
 
 class Gameboard extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Gameboard extends React.Component {
       currentQuestion: '',
       currentAnswer: '',
       currentQuestionValue: 0,
-      
+
       board: [
         {
           Category: 'GUINNESS RECORDS',
@@ -64,33 +65,45 @@ class Gameboard extends React.Component {
     // variable that stores initial game board state 
     let gameboard = []
     API.Categories()
-    .then(function(response){ 
-      console.log(response)
-    })
-    
+      .then(function (response) {
+        gameboard = response
+        console.log(gameboard)
+        console.log(gameboard.length)
+      })
+      .then(function (response) {
+        
+        let promises = []
+        for (var i = 0; i < gameboard.length; i++) {
+          promises.push((API.Questions(gameboard[i].id)))
+        }
+        Promise.all(promises)
+        .then(function(response){
+          console.log('test')
+          console.log(response)
+        })
+      })
+          
+}
 
-
-  }
-
-  showQuestion = (question,answer) => (event) => {
+  showQuestion = (question, answer) => (event) => {
     this.setState({
       boardView: false,
       currentQuestion: question,
-      currentAnswer: answer 
+      currentAnswer: answer
     })
   }
 
-  answerQuestion =  (userStuff) => (e) => {
+  answerQuestion = (userStuff) => (e) => {
     // check the answer by extracting only needed parts of answer 
     e.preventDefault()
-    let correctAnswer = this.state.currentAnswer.replace(/<[^>]*>/g,'')
-    correctAnswer = correctAnswer.replace(/\s/g,'')
+    let correctAnswer = this.state.currentAnswer.replace(/<[^>]*>/g, '')
+    correctAnswer = correctAnswer.replace(/\s/g, '')
     correctAnswer = correctAnswer.toLowerCase()
-    userStuff = userStuff.replace(/\s/g,'')
+    userStuff = userStuff.replace(/\s/g, '')
     userStuff = userStuff.toLowerCase()
 
     // correctAnswer = correctAnswer.match(/[^\W_]+/)
-    
+
     if (correctAnswer === userStuff) {
       alert('correct!')
     }
@@ -98,7 +111,7 @@ class Gameboard extends React.Component {
     console.log(correctAnswer)
     console.log('the user input')
     console.log(userStuff)
-     this.setState({boardView: true})
+    this.setState({ boardView: true })
   }
 
   render() {
@@ -119,12 +132,12 @@ class Gameboard extends React.Component {
           </tbody>
         </table>
         :
-        <QuestionReveal 
+        <QuestionReveal
           question={this.state.currentQuestion}
           answer={this.state.currentAnswer}
           answerQuestion={this.answerQuestion}
-        
-         />
+
+        />
 
 
 

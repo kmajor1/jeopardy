@@ -1,7 +1,8 @@
 import axios from 'axios' // this might not be needed
 import { resolveAny } from 'dns';
 const API = {
-  Categories: Categories
+  Categories: Categories,
+  Questions: Questions
 }
 
 function Categories(){
@@ -15,7 +16,7 @@ function Categories(){
       for (var i = 0; i < response.data.length; i++){
         let category = {
           id: response.data[i].id, 
-          category: response.data[i].title,
+          Category: response.data[i].title,
           tiles: [] 
         }
         board.push(category)
@@ -27,8 +28,20 @@ function Categories(){
   })
 }
 
+
 function Questions(category){
   // populate tiles array 
-}
+  // log the input to function
+  return new Promise((resolve) => {
+    
+      axios.get('/api/questions/'+category)
+        .then(function(response){
+          // return the questions for that 
+          console.log(response.data)
+          resolve(response.data)
+        })
+        
+      }
+  )}
 
 export default API
