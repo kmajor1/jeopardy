@@ -3,6 +3,7 @@ import React from 'react'
 // import the Sub-components of the gameboard
 import Category from './Category'
 import QuestionReveal from './QuestionReveal';
+import API from './utils/API'
 
 
 // import the css 
@@ -60,6 +61,14 @@ class Gameboard extends React.Component {
 
   componentDidMount() {
     // call API.getCategories which would call our backend 
+    // variable that stores initial game board state 
+    let gameboard = []
+    API.Categories()
+    .then(function(response){ 
+      console.log(response)
+    })
+    
+
 
   }
 

@@ -25,14 +25,7 @@ app.use("/api", apiRoutes);
 
 // connect to mongoose 
 mongoose.connect("mongodb://localhost/jeopardy", { useNewUrlParser: true });
-// try and create a category 
-db.Category.create({jServiceID: 11510, category: 'test'})
-  .then(function(response){
-    console.log(response)
-  })
-  .catch(function(err){
-    console.log(err)
-  })
+
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
