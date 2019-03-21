@@ -1,4 +1,5 @@
 import React from 'react'
+import Gameboard from './Gameboard';
 
 class Timer extends React.Component {
     constructor (props) {
@@ -27,7 +28,6 @@ class Timer extends React.Component {
             }))
         }, 1000)
     }
-
 }
 
 export default Timer
