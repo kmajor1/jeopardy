@@ -76,7 +76,7 @@ class Gameboard extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-8">
-              <table >
+              <table className="animated bounceInRight delay-1s">
                 <tbody>
                   {/* inline function that maps the categories array in state */}
                   {this.state.board.map((value, index) =>

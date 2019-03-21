@@ -8,6 +8,7 @@ const Header = () => {
         <div className="container">
             <h1>Jeopardy Game</h1>
         </div>
+        <hr />
     </nav>
   );
 };

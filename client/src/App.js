@@ -5,6 +5,7 @@ import QuestionReveal from './components/QuestionReveal'
 import './App.css'
 // import Header from './components/Header'
 import Gameboard from './components/Gameboard'
+import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import Amplify from 'aws-amplify';
 // import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
@@ -38,6 +39,7 @@ class App extends Component {
             <Gameboard 
               {...props}  
               doubleJeopardy={this.state.doubleJeopardy}  />)} />
+            <Footer />
         </div>
       </Router>
     );

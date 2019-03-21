@@ -6,7 +6,7 @@ class Scoreboard extends Component {
   render() {
     return (
       <div class="outer-scoreboard">
-        <div className="scoreboard">
+        <div className="scoreboard animated bounceInUp delay-1s">
           <h1>SCOREBOARD</h1>
           <br/><br/>
           <h3>Player 1</h3>
@@ -17,7 +17,7 @@ class Scoreboard extends Component {
           <br/><br/>
         </div>
         <br/>
-        <div className="button">
+        <div className="button animated bounceInLeft delay-1s">
         <h4>Test Button</h4>
           <Testbutton />
         </div>
