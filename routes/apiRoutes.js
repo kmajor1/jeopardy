@@ -38,6 +38,7 @@ router.get('/gameInit',   function(req,res) {
 })
 
 router.get("/category", (req, res) => {
+  console.log('category route running')
 
   var categories = []
   axios.get("http://jservice.io/api/categories?count=100")
@@ -49,6 +50,7 @@ router.get("/category", (req, res) => {
     return categories
   })
   .then(response => {
+    console.log('category route done')
     res.json(response)
   })
   
@@ -56,6 +58,7 @@ router.get("/category", (req, res) => {
 
 
 router.get("/questions/:categoryID", (req, res) => {
+  console.log('questions route running')
   let tiles = []
   let category = req.params.categoryID
 
@@ -68,23 +71,14 @@ router.get("/questions/:categoryID", (req, res) => {
       tiles.push(tile)
       
     }
+    console.log('questions route done running')
    return(tiles)
-  }).then(response => question(response))
+  }).then(response => res.json(response))
   .catch(err => res.status(422).json(err))
 
 })
 
-router.get('/populate', function(req,res) {
-  // call the categories route 
-  
-  axios.get('/api/category')
-    .then((response) => {
-      console.log(response)
-      res.send('populate done')
-    })
-    .catch(err => console.log(err))
 
-})
 
 router.get("/")
 
