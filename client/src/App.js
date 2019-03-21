@@ -3,17 +3,19 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import QuestionReveal from './components/QuestionReveal'
 import './App.css'
+import Header from './components/Header'
 import Gameboard from './components/Gameboard'
-import Amplify from 'aws-amplify';
+import 'bootstrap/dist/css/bootstrap.min.css'
+// import Amplify from 'aws-amplify';
+// import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
+// import awsmobile from './aws-exports'
 import Testbutton from './components/Testbutton'
 import API from "./components/utils/API";
-import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
-import awsmobile from './aws-exports'
 
   
 
 
-Amplify.configure(awsmobile);
+// Amplify.configure(awsmobile);
 
 
 class App extends Component {
@@ -28,19 +30,21 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div className="App">
-        
-          {/* we should organize this in some sort of grid */}
-          
-          <Route exact path='/' render={(props) => (<Gameboard {...props}  doubleJeopardy={this.state.doubleJeopardy}  />)} />
-          
-          
-        <Testbutton></Testbutton>
-      </div>
-      
+        <div className="App">
+            <Header />
+            {/* we should organize this in some sort of grid */}
+            
+            <Route exact path='/' render={(props) => (
+            <Gameboard 
+              {...props}  
+              doubleJeopardy={this.state.doubleJeopardy}  />)} />
+             
+          <Testbutton />
+        </div>
       </Router>
     );
   }
 }
 
-export default withAuthenticator(App, false)  
+export default App
+// withAuthenticator(App, false)  

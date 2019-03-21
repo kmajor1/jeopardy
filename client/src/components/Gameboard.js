@@ -1,8 +1,9 @@
 import React from 'react'
 
 // import the Sub-components of the gameboard
-import Category from './Category'
+import Category from './Category';
 import QuestionReveal from './QuestionReveal';
+import Scoreboard from './Scoreboard';
 
 
 // import the css 
@@ -72,28 +73,32 @@ class Gameboard extends React.Component {
   render() {
     return (
       this.state.boardView ?
-        <table>
-          <tbody>
-            {/* inline function that maps the the categories array in state */}
-            {this.state.board.map((value, index) =>
-              (<Category
-                key={value.Category}
-                tiles={this.state.board[index].tiles}
-                showQuestion={this.showQuestion}
-                {...this.props}>
-                {value.Category}
-              </Category>))}
-          </tbody>
-        </table>
-        :
-        <QuestionReveal 
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-8">
+              <table >
+                <tbody>
+                  {/* inline function that maps the categories array in state */}
+                  {this.state.board.map((value, index) =>
+                    (<Category
+                      key={value.Category}
+                      tiles={this.state.board[index].tiles}
+                      showQuestion={this.showQuestion}
+                      {...this.props}>
+                      {value.Category}
+                    </Category>))}
+                </tbody>
+              </table>
+            </div>
+            <div className="col-4">
+              <Scoreboard />
+            </div>
+          </div>
+        </div>
+        :<QuestionReveal 
           currentQuestion={this.state.currentQuestion}
           answerQuestion={this.answerQuestion}
-        
          />
-
-
-
     )
   }
 }
