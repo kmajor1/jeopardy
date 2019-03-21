@@ -15,12 +15,15 @@ class Gameboard extends React.Component {
     this.state = {
       isStarted: false,
       boardView: true,
-      currentQuestion: {},
+      currentQuestion: '',
+      currentAnswer: '',
+      currentQuestionValue: 0,
+      
       board: [
         {
           Category: 'GUINNESS RECORDS',
           tiles: [
-            { question: `Working with more than 4.5 million donors, this American org. is the world's largest blood provider`, answer: 'The Red Cross' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
+            { question: `Working with more than 4.5 million donors, this American org. is the world's largest blood provider`, answer: 'The Red <i>Cross</i>' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
           ]
 
         },
@@ -69,14 +72,34 @@ class Gameboard extends React.Component {
 
   }
 
-  showQuestion = (question) => (event) => {
+  showQuestion = (question,answer) => (event) => {
     this.setState({
       boardView: false,
-      currentQuestion: question
+      currentQuestion: question,
+      currentAnswer: answer 
     })
   }
 
-  answerQuestion = (e) => {this.setState({boardView: true})}
+  answerQuestion =  (userStuff) => (e) => {
+    // check the answer by extracting only needed parts of answer 
+    e.preventDefault()
+    let correctAnswer = this.state.currentAnswer.replace(/<[^>]*>/g,'')
+    correctAnswer = correctAnswer.replace(/\s/g,'')
+    correctAnswer = correctAnswer.toLowerCase()
+    userStuff = userStuff.replace(/\s/g,'')
+    userStuff = userStuff.toLowerCase()
+
+    // correctAnswer = correctAnswer.match(/[^\W_]+/)
+    
+    if (correctAnswer === userStuff) {
+      alert('correct!')
+    }
+    console.log('the correct answer')
+    console.log(correctAnswer)
+    console.log('the user input')
+    console.log(userStuff)
+     this.setState({boardView: true})
+  }
 
   render() {
     return (
@@ -89,6 +112,7 @@ class Gameboard extends React.Component {
                 key={value.Category}
                 tiles={this.state.board[index].tiles}
                 showQuestion={this.showQuestion}
+                answerQuestion={this.answerQuestion}
                 {...this.props}>
                 {value.Category}
               </Category>))}
@@ -96,7 +120,8 @@ class Gameboard extends React.Component {
         </table>
         :
         <QuestionReveal 
-          currentQuestion={this.state.currentQuestion}
+          question={this.state.currentQuestion}
+          answer={this.state.currentAnswer}
           answerQuestion={this.answerQuestion}
         
          />
