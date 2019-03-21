@@ -18,6 +18,8 @@ const findCategories =  function () {
   
   return new Promise(resolve => {
     db.Question.findRandom({category_id: category}, {_id: 0, question:1, answer:1}, {limit: 5}, function(err,questions){
+      console.log(questions)
+      
       resolve(questions)
     })
     
