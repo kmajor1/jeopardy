@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const random = require('mongoose-simple-random')
 const Schema = mongoose.Schema
 
 const categorySchema = new Schema({
@@ -11,6 +12,8 @@ const categorySchema = new Schema({
     required: true 
   }
 })
+
+categorySchema.plugin(random)
 
 const category = mongoose.model('Category',categorySchema)
 module.exports = category 

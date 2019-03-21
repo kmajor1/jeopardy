@@ -1,21 +1,34 @@
 const db = require('../models')
 
-const gameInit =  function () {
-  let gameboard = []
-  return new Promise(resolve => {  db.Category.countDocuments().exec(function (err, count) {
-      // Get a random entry
-      var random = Math.floor(Math.random() * count)
-
-      db.Category.findOne().skip(random).exec(
-        function (err, result) {
-          // push in object to gameboard 
-          gameboard.push(result)
-          resolve(result)
-        })
+const findCategories =  function () {
+  let categories = []
+  return new Promise(resolve => {
+    db.Category.findRandom({},{},{limit: 5},function(err, results){
+      for (var i = 0; i < results.length; i++){
+        let category = {category_id: results[i].jServiceID, category: results[i].category}
+        categories.push(category)
+      }
+      resolve(categories)
     })
+  
   })
-    
 }
 
+ function getQuestionsByCategory(category){
+  
+  return new Promise(resolve => {
+    db.Question.findRandom({category_id: category}, {_id: 0, question:1, answer:1}, {limit: 5}, function(err,questions){
+      resolve(questions)
+    })
+    
+  })
+  
+}
+    
 
-module.exports = gameInit
+
+
+module.exports = {
+  findCategories: findCategories,
+  getQuestionsForCategory: getQuestionsByCategory
+}

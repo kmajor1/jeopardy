@@ -15,9 +15,24 @@ const gameInit = require('../controllers/gameInit')
 
 // game init route 
 router.get('/gameInit',   function(req,res) {
-   gameInit().then(function(result) {
-    res.send(result)
+  let gameboard = []
+  // get some categories 
+   gameInit.findCategories().then(function(categories) {
+    console.log(categories)
+    return categories 
    })
+   .then(function(categories){
+     for (var i = 0; i < categories.length ; i++) {
+      gameInit.getQuestionsForCategory(categories[i].category_id)
+      .then(function(questions){
+        console.log(questions)
+      })
+     }
+
+   })
+   .then(
+     res.send('done')
+   )
   
   
 })
