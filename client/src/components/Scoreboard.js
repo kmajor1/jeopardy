@@ -1,12 +1,26 @@
 import React, { Component } from 'react'
 import '../css/Scoreboard.css';
+import Testbutton from './Testbutton'
 
 class Scoreboard extends Component {
   render() {
     return (
-      <div className="scoreboard">
-        <h3>Player 1</h3>
-        <h4>Current Score is: </h4>
+      <div class="outer-scoreboard">
+        <div className="scoreboard">
+          <h1>SCOREBOARD</h1>
+          <br/><br/>
+          <h3>Player 1</h3>
+          <h4>Current Score is: </h4>
+          <br/><br/><br/>
+          <h3>Timer can go here</h3>
+          <h4>Time left:  </h4>
+          <br/><br/>
+        </div>
+        <br/>
+        <div className="button">
+        <h4>Test Button</h4>
+          <Testbutton />
+        </div>
       </div>
     )
   }

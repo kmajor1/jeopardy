@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import QuestionReveal from './components/QuestionReveal'
 import './App.css'
-import Header from './components/Header'
+// import Header from './components/Header'
 import Gameboard from './components/Gameboard'
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import Amplify from 'aws-amplify';
@@ -31,15 +31,13 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-            <Header />
+            {/* <Header /> */}
             {/* we should organize this in some sort of grid */}
             
             <Route exact path='/' render={(props) => (
             <Gameboard 
               {...props}  
               doubleJeopardy={this.state.doubleJeopardy}  />)} />
-             
-          <Testbutton />
         </div>
       </Router>
     );

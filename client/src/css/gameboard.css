@@ -1,7 +1,9 @@
 table {
   border-collapse: collapse;
   width: 100%; 
-  border: 5px solid red;
+  border: 10px solid #010569;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,.50);
 }
 
 tr {

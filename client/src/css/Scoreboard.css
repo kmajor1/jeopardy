@@ -1,6 +1,15 @@
 .scoreboard {
-    background-color: orange;
+    background-color: #FFBE00;
     padding: 30px;
     text-align: center;
-    border: 2px solid red;
+    border: 10px solid #010569;
+    box-shadow: 10px 10px 20px rgba(0,0,0,.50);
+}
+
+.button {
+    padding: 30px;
+    background-color: #FFBE00;
+    border: 10px solid #010569;
+    box-shadow: 10px 10px 20px rgba(0,0,0,.50);
+    text-align: center;
 }
