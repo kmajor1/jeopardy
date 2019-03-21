@@ -58,6 +58,8 @@ class Gameboard extends React.Component {
 
   componentDidMount() {
     // call API.getCategories which would call our backend 
+    // variable that stores initial game board state 
+    let gameboard = []
     API.Categories()
     .then(function(response){ 
       console.log(response)
