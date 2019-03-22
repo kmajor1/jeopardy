@@ -9,6 +9,9 @@ import Testbutton from './components/Testbutton'
 import API from "./components/utils/API";
 import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
 import awsmobile from './aws-exports'
+import Header from './components/Header'
+
+
 
   
 
@@ -25,17 +28,20 @@ class App extends Component {
     }
   }
 
+
+
   render() {
     return (
       <Router>
+ 
       <div className="App">
-        
+      <Header></Header>
           {/* we should organize this in some sort of grid */}
           
           <Route exact path='/' render={(props) => (<Gameboard {...props}  doubleJeopardy={this.state.doubleJeopardy}  />)} />
           
           
-        <Testbutton></Testbutton>
+        
       </div>
       
       </Router>
@@ -43,4 +49,4 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App, false)  
+export default withAuthenticator(App, true)  

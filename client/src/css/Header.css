@@ -1,0 +1,13 @@
+button{
+    margin: 10px;
+    background-color: rgb(5, 63, 255);
+    border: none;
+    padding: 14px ;
+    color: aliceblue;
+    font-size: 26px;
+}
+div.header{
+    width: 100%;
+    text-align: right;
+    background: linear-gradient(to top left, #000088, #0000ff);
+}
