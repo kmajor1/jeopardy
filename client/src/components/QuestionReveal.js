@@ -21,7 +21,7 @@ class QuestionReveal extends React.Component {
   render(){
     const {answerQuestion} = this.props 
     return(
-      <div className="question-full col-12" onClick={answerQuestion}>
+      <div className="question-full col-12 animated zoomIn delay-0.2s" onClick={answerQuestion}>
         <Container>
         <Row>
          <Col>
