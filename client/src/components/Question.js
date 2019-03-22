@@ -10,7 +10,8 @@ class Question extends React.Component {
     this.state = {
       answered: false,
       question: props.question,
-      answer: props.answer 
+      answer: props.answer,
+      
     }
   }
 
@@ -18,7 +19,7 @@ class Question extends React.Component {
     
     return (
       <Fragment>
-      <td onClick={this.props.showQuestion(this.state.question, this.state.answer)} className="question-tile">{this.props.children}</td>
+      <td onClick={this.props.showQuestion(this.state.question, this.state.answer, this.props.cIndex,this.props.qIndex)} className="question-tile">{this.props.answered ? '' : this.props.children}</td>
     </Fragment>
     )
   }

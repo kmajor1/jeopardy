@@ -103,12 +103,26 @@ class Gameboard extends React.Component {
 
     
 
-  showQuestion = (question, answer) => (event) => {
-    this.setState({
-      boardView: false,
-      currentQuestion: question,
-      currentAnswer: answer
+  showQuestion = (question, answer, catIndex, questionIndex) => (event) => {
+    if (this.state.board[catIndex].tiles[questionIndex].answered){
+      return 
+    }
+    this.setState((state,props) => {
+       const updatedBoard = state.board 
+       updatedBoard[catIndex].tiles[questionIndex].answered = true  
+      return (
+        {
+          
+          board: updatedBoard,
+          boardView: false,
+          currentQuestion: question,
+          currentAnswer: answer,
+          
+        }
+      )
     })
+
+    
   }
 
   answerQuestion = (userStuff) => (e) => {
@@ -131,15 +145,13 @@ class Gameboard extends React.Component {
     console.log('the user input')
     console.log(userStuff)
      this.setState({boardView: true})
-     // call question updater 
      
-     this.testMethod()
+     
+     
 
   }
 
-  testMethod(){
     
-  }
 
   render() {
     return (
@@ -149,11 +161,11 @@ class Gameboard extends React.Component {
             {/* inline function that maps the the categories array in state */}
             {this.state.board.map((value, index) =>
               (<Category
-                key={value.Category}
+                key={index}
+                cIndex={index}
                 tiles={this.state.board[index].tiles}
                 showQuestion={this.showQuestion}
                 answerQuestion={this.answerQuestion}
-                testMethod={this.testMethod}
                 {...this.props}>
                 {value.Category}
               </Category>))}
