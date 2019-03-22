@@ -4,6 +4,7 @@ import React from 'react'
 import Category from './Category'
 import QuestionReveal from './QuestionReveal';
 import API from './utils/API'
+import Question from './Question'
 
 
 // import the css 
@@ -22,7 +23,7 @@ class Gameboard extends React.Component {
         {
           Category: 'GUINNESS RECORDS',
           tiles: [
-            { question: `Working with more than 4.5 million donors, this American org. is the world's largest blood provider`, answer: 'The Red <i>Cross</i>' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
+            { question: `Working with more than 4.5 million donors, this American org. is the world's largest blood provider`, answer: 'The Red <i>Cross</i>', clicked: false }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
           ]
 
         },
@@ -74,29 +75,51 @@ class Gameboard extends React.Component {
           promises.push((API.Questions(gameboard[i].id)))
         }
       })
-      .then(res => {
-        Promise.all(promises)
-          .then(response => {
-            console.log('test')
-            console.log(response)
-            for (var i = 0; i < response.length; i++) {
-              gameboard[i].tiles = response[i]
-            }
-            console.log(gameboard)
-            this.setState({ board: gameboard })
+          .then(res => {
+            Promise.all(promises)
+              .then(response => {
+                console.log('test')
+                console.log(response)
+                for (var i = 0; i < response.length; i++) {
+                  gameboard[i].tiles = response[i]
+                }
+                console.log(gameboard.length)
+                for (var j = 0; j < gameboard.length; j++){
+                  console.log(gameboard[j].tiles.length)
+                  for (var k = 0; k < gameboard[j].tiles.length; k++){
+                    gameboard[j].tiles[k].answered = false 
+                    
+                  }
+                }
+                console.log(gameboard)
+                
+                this.setState({board: gameboard})
+              })
           })
-      })
-
-  }
-
+            
+            }
 
 
-  showQuestion = (question, answer) => (event) => {
-    this.setState({
-      boardView: false,
-      currentQuestion: question,
-      currentAnswer: answer
+  showQuestion = (question, answer, catIndex, questionIndex) => (event) => {
+    if (this.state.board[catIndex].tiles[questionIndex].answered){
+      return 
+    }
+    this.setState((state,props) => {
+       const updatedBoard = state.board 
+       updatedBoard[catIndex].tiles[questionIndex].answered = true  
+      return (
+        {
+          
+          board: updatedBoard,
+          boardView: false,
+          currentQuestion: question,
+          currentAnswer: answer,
+          
+        }
+      )
     })
+
+    
   }
 
   testMethod() {
@@ -122,10 +145,14 @@ class Gameboard extends React.Component {
     console.log(correctAnswer)
     console.log('the user input')
     console.log(userStuff)
-    this.setState({ boardView: true })
-
+     this.setState({boardView: true})
+     
+     
+     
 
   }
+
+    
 
   render() {
     return (
@@ -135,7 +162,8 @@ class Gameboard extends React.Component {
             {/* inline function that maps the the categories array in state */}
             {this.state.board.map((value, index) =>
               (<Category
-                key={value.Category}
+                key={index}
+                cIndex={index}
                 tiles={this.state.board[index].tiles}
                 showQuestion={this.showQuestion}
                 answerQuestion={this.answerQuestion}

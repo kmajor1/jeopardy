@@ -11,6 +11,7 @@ class Category extends React.Component {
     this.props.testMethod = this.props.testMethod.bind(this)
 
     this.state = {
+      index: props.index 
       
       
 
@@ -28,8 +29,8 @@ class Category extends React.Component {
     return (
       <Fragment>
         <tr>
-          <td className="category-tile question-tile">{this.props.children}</td>
-          {this.props.tiles.map((value,index) => (<Question key={index} question={value.question} answer={value.answer} showQuestion={showQuestion} answerQuestion={this.props.answerQuestion}>{this.props.doubleJeopardy ? doubleJeopardy[index] : jeopardy[index]}</Question>))}
+          <td className="question-tile">{this.props.children}</td>
+          {this.props.tiles.map((value,index) => (<Question key={index} cIndex={this.props.cIndex} qIndex={index} question={value.question} answer={value.answer} showQuestion={showQuestion} answerQuestion={this.props.answerQuestion} answered={value.answered}>{this.props.doubleJeopardy ? doubleJeopardy[index] : jeopardy[index]}</Question>))}
           
         </tr>
       </Fragment>
