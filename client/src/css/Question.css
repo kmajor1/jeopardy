@@ -1,5 +1,7 @@
 
 
+
+
 .question-tile  {
   background: linear-gradient(to top left, #000088, #060CE9);
   color: #ffd700; 
@@ -10,3 +12,8 @@
   font-size: 3.0vw;
   line-height: 1em; 
 }
+
+.category-tile {
+  color: white;
+}
+
