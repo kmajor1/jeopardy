@@ -8,7 +8,6 @@ import API from './utils/API'
 
 // import the css 
 import '../css/gameboard.css'
-import Axios from 'axios';
 
 class Gameboard extends React.Component {
   constructor(props) {

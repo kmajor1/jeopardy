@@ -2,6 +2,7 @@ table {
   border-collapse: collapse;
   width: 100%; 
   
+  
 }
 
 tr {
@@ -12,5 +13,5 @@ tr {
 
 th,
 td {
-  height: Calc(100vh/6);
+  height: Calc((100vh*.9)/6)
 }

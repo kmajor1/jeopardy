@@ -13,4 +13,5 @@ div.header{
     width: 100%;
     text-align: right;
     background: linear-gradient(to top left, #000088, #0000ff);
+    height: Calc(100vh*0.1);
 }
