@@ -25,7 +25,7 @@ class Category extends React.Component {
       <Fragment>
         <tr>
           <td className="question-tile">{this.props.children}</td>
-          {this.props.tiles.map((value,index) => (<Question key={index} question={value.question} answer={value.answer} showQuestion={showQuestion} answerQuestion={this.props.answerQuestion}>{this.props.doubleJeopardy ? doubleJeopardy[index] : jeopardy[index]}</Question>))}
+          {this.props.tiles.map((value,index) => (<Question key={index} question={value.question} answer={value.answer} showQuestion={showQuestion} answerQuestion={this.props.answerQuestion} testMethod={this.props.testMethod}>{this.props.doubleJeopardy ? doubleJeopardy[index] : jeopardy[index]}</Question>))}
           
         </tr>
       </Fragment>

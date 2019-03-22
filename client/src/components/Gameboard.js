@@ -4,6 +4,7 @@ import React from 'react'
 import Category from './Category'
 import QuestionReveal from './QuestionReveal';
 import API from './utils/API'
+import Question from './Question'
 
 
 // import the css 
@@ -23,7 +24,7 @@ class Gameboard extends React.Component {
         {
           Category: 'GUINNESS RECORDS',
           tiles: [
-            { question: `Working with more than 4.5 million donors, this American org. is the world's largest blood provider`, answer: 'The Red <i>Cross</i>' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
+            { question: `Working with more than 4.5 million donors, this American org. is the world's largest blood provider`, answer: 'The Red <i>Cross</i>', clicked: false }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
           ]
 
         },
@@ -84,7 +85,16 @@ class Gameboard extends React.Component {
                 for (var i = 0; i < response.length; i++) {
                   gameboard[i].tiles = response[i]
                 }
+                console.log(gameboard.length)
+                for (var j = 0; j < gameboard.length; j++){
+                  console.log(gameboard[j].tiles.length)
+                  for (var k = 0; k < gameboard[j].tiles.length; k++){
+                    gameboard[j].tiles[k].answered = false 
+                    
+                  }
+                }
                 console.log(gameboard)
+                
                 this.setState({board: gameboard})
               })
           })
@@ -121,6 +131,14 @@ class Gameboard extends React.Component {
     console.log('the user input')
     console.log(userStuff)
      this.setState({boardView: true})
+     // call question updater 
+     
+     this.testMethod()
+
+  }
+
+  testMethod(){
+    
   }
 
   render() {
@@ -135,6 +153,7 @@ class Gameboard extends React.Component {
                 tiles={this.state.board[index].tiles}
                 showQuestion={this.showQuestion}
                 answerQuestion={this.answerQuestion}
+                testMethod={this.testMethod}
                 {...this.props}>
                 {value.Category}
               </Category>))}

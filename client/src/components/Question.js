@@ -8,14 +8,13 @@ class Question extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      notClicked: true,
+      answered: false,
       question: props.question,
       answer: props.answer 
     }
   }
 
   render(){
-    
     
     return (
       <Fragment>
