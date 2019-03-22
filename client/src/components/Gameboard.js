@@ -3,7 +3,7 @@ import React from 'react'
 // import the Sub-components of the gameboard
 import Category from './Category';
 import QuestionReveal from './QuestionReveal';
-import Scoreboard from './Scoreboard';
+// import Scoreboard from './Scoreboard';
 
 
 // import the css 
@@ -75,10 +75,9 @@ class Gameboard extends React.Component {
       this.state.boardView ?
         <div className="container-fluid">
           <div className="row">
-            <div className="col-8">
-              <table className="animated bounceInRight delay-1s">
+            <div className="col-12">
+              <table className="animated bounceInRight delay-1.1s">
                 <tbody>
-                  {/* inline function that maps the categories array in state */}
                   {this.state.board.map((value, index) =>
                     (<Category
                       key={value.Category}
@@ -90,9 +89,9 @@ class Gameboard extends React.Component {
                 </tbody>
               </table>
             </div>
-            <div className="col-4">
-              <Scoreboard />
-            </div>
+            {/* <div className="col-4">
+              {/* <Scoreboard /> */}
+            {/* </div> */}
           </div>
         </div>
         :<QuestionReveal 

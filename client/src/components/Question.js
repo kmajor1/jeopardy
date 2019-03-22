@@ -16,8 +16,10 @@ class Question extends React.Component {
     const {question} = this.props 
     return (
       <Fragment>
-        <td onClick={this.props.showQuestion(question)} 
-            className="question-tile">{this.props.children}</td>
+        <div>
+          <td onClick={this.props.showQuestion(question)} 
+              className="question-tile">{this.props.children}</td>
+        </div>
       </Fragment>
     )
   }

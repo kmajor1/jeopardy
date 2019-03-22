@@ -12,7 +12,7 @@ class AnswerInput extends React.Component{
 
   render(){
     return (
-      <div>
+      <div class="col-12">
         <Form>
           <Form.Control id="answerInput" type="text" placeholder="Trebek is waiting..." />
         </Form>

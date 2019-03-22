@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // import awsmobile from './aws-exports'
 import Testbutton from './components/Testbutton'
 import API from "./components/utils/API";
+import Scoreboard from './components/Scoreboard';
 
   
 
@@ -32,13 +33,25 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-            {/* <Header /> */}
-            {/* we should organize this in some sort of grid */}
-            
+          <div className="row">
+            <div className="col-8">
             <Route exact path='/' render={(props) => (
             <Gameboard 
               {...props}  
               doubleJeopardy={this.state.doubleJeopardy}  />)} />
+
+            </div>
+            <div className="col-4">
+              <Scoreboard />
+            </div>
+            <Footer />
+          </div>
+            {/* <Header /> */}
+            {/* we should organize this in some sort of grid */}
+          
+            <div className="col-4">
+              <Scoreboard />
+            </div>
             <Footer />
         </div>
       </Router>

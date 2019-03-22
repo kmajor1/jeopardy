@@ -21,7 +21,7 @@ class QuestionReveal extends React.Component {
   render(){
     const {answerQuestion} = this.props 
     return(
-      <div className="question-full" onClick={answerQuestion}>
+      <div className="question-full col-12" onClick={answerQuestion}>
         <Container>
         <Row>
          <Col>
@@ -29,7 +29,7 @@ class QuestionReveal extends React.Component {
          </Col>
        </Row>
        <Row id="inputHolder">
-         <Col xs={6} >
+         <Col xs={8} >
          <AnswerInput />
          </Col>
        </Row>
