@@ -10,6 +10,7 @@ class Category extends React.Component {
     super(props)
     this.state = {
       
+      
 
     }
   }
@@ -17,13 +18,14 @@ class Category extends React.Component {
   
  
 
+
   render(){
     const {showQuestion} = this.props
     return (
       <Fragment>
         <tr>
-          <td className="question-tile">{this.props.children}</td>
-          {this.props.tiles.map((value,index) => (<Question key={index} question={value.question} showQuestion={showQuestion}>{this.props.doubleJeopardy ? doubleJeopardy[index] : jeopardy[index]}</Question>))}
+          <td className="category-tile question-tile">{this.props.children}</td>
+          {this.props.tiles.map((value,index) => (<Question key={index} question={value.question} answer={value.answer} showQuestion={showQuestion} answerQuestion={this.props.answerQuestion}>{this.props.doubleJeopardy ? doubleJeopardy[index] : jeopardy[index]}</Question>))}
           
         </tr>
       </Fragment>

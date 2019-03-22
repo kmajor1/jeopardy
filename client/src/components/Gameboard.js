@@ -3,10 +3,12 @@ import React from 'react'
 // import the Sub-components of the gameboard
 import Category from './Category'
 import QuestionReveal from './QuestionReveal';
+import API from './utils/API'
 
 
 // import the css 
 import '../css/gameboard.css'
+import Axios from 'axios';
 
 class Gameboard extends React.Component {
   constructor(props) {
@@ -14,12 +16,14 @@ class Gameboard extends React.Component {
     this.state = {
       isStarted: false,
       boardView: true,
-      currentQuestion: {},
+      currentQuestion: '',
+      currentAnswer: '',
+      currentQuestionValue: 0,
       board: [
         {
           Category: 'GUINNESS RECORDS',
           tiles: [
-            { question: `Working with more than 4.5 million donors, this American org. is the world's largest blood provider`, answer: 'The Red Cross' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
+            { question: `Working with more than 4.5 million donors, this American org. is the world's largest blood provider`, answer: 'The Red <i>Cross</i>' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
           ]
 
         },
@@ -55,19 +59,69 @@ class Gameboard extends React.Component {
     }
   }
 
-  componentDidMount() {
+   componentDidMount() {
     // call API.getCategories which would call our backend 
+    // variable that stores initial game board state     
+      let gameboard = []
+      let promises = []
+        API.Categories()
+          .then(response => {
+            gameboard = response
+            console.log(gameboard)
+            console.log(gameboard.length)
+          })
+          .then(response => {
+            
+            for (var i = 0; i < gameboard.length; i++) {
+              promises.push((API.Questions(gameboard[i].id)))
+            }
+          })
+          .then(res => {
+            Promise.all(promises)
+              .then(response => {
+                console.log('test')
+                console.log(response)
+                for (var i = 0; i < response.length; i++) {
+                  gameboard[i].tiles = response[i]
+                }
+                console.log(gameboard)
+                this.setState({board: gameboard})
+              })
+          })
+            
+            }
 
-  }
+    
 
-  showQuestion = (question) => (event) => {
+  showQuestion = (question, answer) => (event) => {
     this.setState({
       boardView: false,
-      currentQuestion: question
+      currentQuestion: question,
+      currentAnswer: answer
     })
   }
 
-  answerQuestion = (e) => {this.setState({boardView: true})}
+  answerQuestion = (userStuff) => (e) => {
+    // check the answer by extracting only needed parts of answer 
+    e.preventDefault()
+    let correctAnswer = this.state.currentAnswer.replace(/<[^>]*>/g,'')
+    correctAnswer = correctAnswer.replace(/\s/g,'')
+    correctAnswer = correctAnswer.toLowerCase()
+    userStuff = userStuff.replace(/\s/g,'')
+    userStuff = userStuff.toLowerCase()
+    
+    if (correctAnswer === userStuff) {
+      alert('correct!')
+    }
+    else {
+      alert('WRONG!')
+    }
+    console.log('the correct answer')
+    console.log(correctAnswer)
+    console.log('the user input')
+    console.log(userStuff)
+     this.setState({boardView: true})
+  }
 
   render() {
     return (
@@ -80,17 +134,19 @@ class Gameboard extends React.Component {
                 key={value.Category}
                 tiles={this.state.board[index].tiles}
                 showQuestion={this.showQuestion}
+                answerQuestion={this.answerQuestion}
                 {...this.props}>
                 {value.Category}
               </Category>))}
           </tbody>
         </table>
         :
-        <QuestionReveal 
-          currentQuestion={this.state.currentQuestion}
+        <QuestionReveal
+          question={this.state.currentQuestion}
+          answer={this.state.currentAnswer}
           answerQuestion={this.answerQuestion}
-        
-         />
+
+        />
 
 
 
