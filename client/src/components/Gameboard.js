@@ -58,39 +58,38 @@ class Gameboard extends React.Component {
     }
   }
 
-   componentDidMount() {
+  componentDidMount() {
     // call API.getCategories which would call our backend 
     // variable that stores initial game board state     
-      let gameboard = []
-      let promises = []
-        API.Categories()
+    let gameboard = []
+    let promises = []
+    API.Categories()
+      .then(response => {
+        gameboard = response
+        console.log(gameboard)
+        console.log(gameboard.length)
+      })
+      .then(response => {
+        for (var i = 0; i < gameboard.length; i++) {
+          promises.push((API.Questions(gameboard[i].id)))
+        }
+      })
+      .then(res => {
+        Promise.all(promises)
           .then(response => {
-            gameboard = response
+            console.log('test')
+            console.log(response)
+            for (var i = 0; i < response.length; i++) {
+              gameboard[i].tiles = response[i]
+            }
             console.log(gameboard)
-            console.log(gameboard.length)
+            this.setState({ board: gameboard })
           })
-          .then(response => {
-            
-            for (var i = 0; i < gameboard.length; i++) {
-              promises.push((API.Questions(gameboard[i].id)))
-            }
-          })
-          .then(res => {
-            Promise.all(promises)
-              .then(response => {
-                console.log('test')
-                console.log(response)
-                for (var i = 0; i < response.length; i++) {
-                  gameboard[i].tiles = response[i]
-                }
-                console.log(gameboard)
-                this.setState({board: gameboard})
-              })
-          })
-            
-            }
+      })
 
-    
+  }
+
+
 
   showQuestion = (question, answer) => (event) => {
     this.setState({
@@ -100,15 +99,19 @@ class Gameboard extends React.Component {
     })
   }
 
+  testMethod() {
+    console.log(this)
+  }
+
   answerQuestion = (userStuff) => (e) => {
     // check the answer by extracting only needed parts of answer 
     e.preventDefault()
-    let correctAnswer = this.state.currentAnswer.replace(/<[^>]*>/g,'')
-    correctAnswer = correctAnswer.replace(/\s/g,'')
+    let correctAnswer = this.state.currentAnswer.replace(/<[^>]*>/g, '')
+    correctAnswer = correctAnswer.replace(/\s/g, '')
     correctAnswer = correctAnswer.toLowerCase()
-    userStuff = userStuff.replace(/\s/g,'')
+    userStuff = userStuff.replace(/\s/g, '')
     userStuff = userStuff.toLowerCase()
-    
+
     if (correctAnswer === userStuff) {
       alert('correct!')
     }
@@ -119,7 +122,9 @@ class Gameboard extends React.Component {
     console.log(correctAnswer)
     console.log('the user input')
     console.log(userStuff)
-     this.setState({boardView: true})
+    this.setState({ boardView: true })
+
+
   }
 
   render() {
@@ -134,6 +139,7 @@ class Gameboard extends React.Component {
                 tiles={this.state.board[index].tiles}
                 showQuestion={this.showQuestion}
                 answerQuestion={this.answerQuestion}
+                testMethod={this.testMethod}
                 {...this.props}>
                 {value.Category}
               </Category>))}

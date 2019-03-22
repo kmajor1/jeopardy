@@ -8,6 +8,8 @@ const doubleJeopardy = ['$400','$800','$1200','$1600','$2000']
 class Category extends React.Component {
   constructor(props){
     super(props)
+    this.props.testMethod = this.props.testMethod.bind(this)
+
     this.state = {
       
       
@@ -21,6 +23,8 @@ class Category extends React.Component {
 
   render(){
     const {showQuestion} = this.props
+    const {testMethod} = this.props
+    testMethod()
     return (
       <Fragment>
         <tr>

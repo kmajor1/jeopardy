@@ -8,10 +8,14 @@ class Question extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      notClicked: true,
+      answerAttempted: false,
       question: props.question,
       answer: props.answer 
     }
+  }
+
+  answerAttempted(){
+    this.setState({answerAttempted: true})
   }
 
   render(){
