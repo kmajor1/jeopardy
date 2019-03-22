@@ -1,0 +1,17 @@
+button{
+    margin: 10px;
+    background-color: red; 
+    border: none;
+    padding: 14px ;
+    color: aliceblue;
+    font-size: 26px;
+    padding-top: 5px;
+    padding-bottom:5px; 
+    border-radius: 1%;
+}
+div.header{
+    width: 100%;
+    text-align: right;
+    background: linear-gradient(to top left, #000088, #0000ff);
+    height: Calc(100vh*0.1);
+}

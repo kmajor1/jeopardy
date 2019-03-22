@@ -1,8 +1,10 @@
 table {
-  height: 90vh; 
+  /* height: 50vh;  */
 }
 .App {
   text-align: center;
+  height: 100vh; 
+  background-color: #0303B6;
 }
 
 

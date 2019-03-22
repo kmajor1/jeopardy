@@ -3,11 +3,11 @@ import API from "./utils/API";
 import { Auth } from 'aws-amplify';
 
 // import custom CSS
-import '../css/AnswerInput.css'
+import '../css/Header.css'
 
 class TestButton extends React.Component{
 
-  test = ()=>{
+  logut = ()=>{
     Auth.signOut()
     .then(data => console.log(data))
     .catch(err => console.log(err));
@@ -15,8 +15,8 @@ class TestButton extends React.Component{
 
   render(){
     return (
-      <div>
-        <button onClick={this.test}>Test</button>
+      <div className="header animated slideInDown delay-1s">
+        <button onClick={this.logut}>Logout</button>
       </div>
     )
   }

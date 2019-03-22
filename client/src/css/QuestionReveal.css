@@ -2,11 +2,14 @@
   background: linear-gradient(to top left, #000088, #0000ff);
   color: white;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  height: 100vh;
+  height: 500px;
   display: flex; 
   justify-content: center;
   align-items: center;
   font-size: 4vw; 
+  border: 10px solid #010569;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 #inputHolder{
