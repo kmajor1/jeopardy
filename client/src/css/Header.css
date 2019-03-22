@@ -1,10 +1,13 @@
 button{
     margin: 10px;
-    background-color: rgb(5, 63, 255);
+    background-color: red; 
     border: none;
     padding: 14px ;
     color: aliceblue;
     font-size: 26px;
+    padding-top: 5px;
+    padding-bottom:5px; 
+    border-radius: 50%;
 }
 div.header{
     width: 100%;
