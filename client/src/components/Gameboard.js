@@ -20,43 +20,8 @@ class Gameboard extends React.Component {
       currentQuestion: '',
       currentAnswer: '',
       currentQuestionValue: 0,
-      board: [
-        {
-          Category: 'GUINNESS RECORDS',
-          tiles: [
-            { question: `Working with more than 4.5 million donors, this American org. is the world's largest blood provider`, answer: 'The Red <i>Cross</i>', clicked: false }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
-          ]
-
-        },
-        {
-          Category: 'Politics',
-          tiles: [
-            { question: 'A', answer: '1' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
-          ]
-
-        },
-        {
-          Category: 'Soccer',
-          tiles: [
-            { question: 'A', answer: '1' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
-          ]
-
-        },
-        {
-          Category: 'Hockey',
-          tiles: [
-            { question: 'A', answer: '1' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
-          ]
-
-        },
-        {
-          Category: 'Basketball',
-          tiles: [
-            { question: 'A', answer: '1' }, { question: 'B', answer: '2' }, { question: 'C', answer: '3' }, { question: 'D', answer: '4' }, { question: 'E', answer: '5' }
-          ]
-
-        }
-      ]
+      board:[]
+    
     }
   }
 
