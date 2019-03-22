@@ -1,6 +1,8 @@
 table {
   border-collapse: collapse;
   width: 100%; 
+  border-width: 0; 
+  background-color: #060CE9;
   
   
 }
@@ -8,10 +10,12 @@ table {
 tr {
   float: left;
   width: Calc(100%/5);
+  border-width: 0; 
   
 }
 
 th,
 td {
-  height: Calc((100vh*.9)/6)
+  height: Calc((100vh*.9)/6);
+  border-width: 0; 
 }
