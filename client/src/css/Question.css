@@ -1,8 +1,8 @@
 
 
 .question-tile  {
-  background: linear-gradient(to top left, #000088, #0000ff);
-  color: white; 
+  background: linear-gradient(to top left, #000088, #060CE9);
+  color: #ffd700; 
   justify-content: center;
   display: flex;
   align-items: center; 
