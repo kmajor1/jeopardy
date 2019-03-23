@@ -14,11 +14,11 @@ class Gameboard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isStarted: false,
       boardView: true,
       currentQuestion: '',
       currentAnswer: '',
       currentQuestionValue: 0,
+      score: 0,
       board:[]
     
     }
@@ -69,6 +69,11 @@ class Gameboard extends React.Component {
     if (this.state.board[catIndex].tiles[questionIndex].answered){
       return 
     }
+    // calculate the value of the question given its question index 
+    // 0 represents lowest value 
+    const questionValue = (questionIndex++)*200; 
+    this.setState({currentQuestionValue: questionValue})
+
     this.setState((state,props) => {
        const updatedBoard = state.board 
        updatedBoard[catIndex].tiles[questionIndex].answered = true  
@@ -87,9 +92,7 @@ class Gameboard extends React.Component {
     
   }
 
-  testMethod() {
-    console.log(this)
-  }
+  
 
   answerQuestion = (userStuff) => (e) => {
     // check the answer by extracting only needed parts of answer 
@@ -102,9 +105,11 @@ class Gameboard extends React.Component {
 
     if (correctAnswer === userStuff) {
       alert('correct!')
+      this.setState((state,props) => ({score: state.currentQuestionValue + state.score}))
     }
     else {
       alert('WRONG!')
+      this.setState((state,props) => ({score: state.score - state.currentQuestionValue}))
     }
     console.log('the correct answer')
     console.log(correctAnswer)
