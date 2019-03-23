@@ -1,7 +1,7 @@
 button{
     margin: 10px;
-    background-color: red; 
-    border: none;
+    background-color: red;
+    border: 5px solid #7C0A00;
     padding: 14px ;
     color: aliceblue;
     font-size: 26px;
@@ -11,7 +11,9 @@ button{
 }
 div.header{
     width: 100%;
-    text-align: right;
+    text-align: left;
     background: linear-gradient(to top left, #000088, #0000ff);
-    height: Calc(100vh*0.1);
+    height: Calc(100vh*0.13);
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
