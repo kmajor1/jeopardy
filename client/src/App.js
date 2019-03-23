@@ -27,7 +27,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-            <Header></Header>
             {/* we should organize this in some sort of grid */}
                   <Route exact path='/' render={(props) => (<Gameboard {...props}  doubleJeopardy={this.state.doubleJeopardy}  />)} />
                 </div>

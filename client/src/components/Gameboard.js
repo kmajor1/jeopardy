@@ -4,6 +4,7 @@ import React from 'react'
 import Category from './Category'
 import QuestionReveal from './QuestionReveal';
 import API from './utils/API'
+import Header from './Header'
 
 
 // import the css 
@@ -124,6 +125,8 @@ class Gameboard extends React.Component {
   render() {
     return (
       this.state.boardView ?
+        <div>
+        <Header></Header>
         <table className="animated bounceInUp delay-1s">
           <tbody>
             {/* inline function that maps the the categories array in state */}
@@ -140,6 +143,7 @@ class Gameboard extends React.Component {
               </Category>))}
           </tbody>
         </table>
+        </div>
         :
         <QuestionReveal
           question={this.state.currentQuestion}
