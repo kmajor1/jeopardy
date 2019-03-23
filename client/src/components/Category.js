@@ -18,9 +18,6 @@ class Category extends React.Component {
     }
   }
 
-  
- 
-
 
   render(){
     const {showQuestion} = this.props

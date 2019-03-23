@@ -65,12 +65,14 @@ class Gameboard extends React.Component {
 
 
   showQuestion = (question, answer, catIndex, questionIndex) => (event) => {
+    console.log(catIndex)
+    console.log(questionIndex)
     if (this.state.board[catIndex].tiles[questionIndex].answered){
       return 
     }
     // calculate the value of the question given its question index 
     // 0 represents lowest value 
-    const questionValue = (questionIndex++)*200; 
+    const questionValue = (questionIndex+1)*200; 
     this.setState({currentQuestionValue: questionValue})
 
     this.setState((state,props) => {
@@ -90,8 +92,6 @@ class Gameboard extends React.Component {
 
     
   }
-
-  
 
   answerQuestion = (userStuff) => (e) => {
     // check the answer by extracting only needed parts of answer 
@@ -120,8 +120,6 @@ class Gameboard extends React.Component {
      
 
   }
-
-    
 
   render() {
     return (
