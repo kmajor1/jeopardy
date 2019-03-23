@@ -19,7 +19,8 @@ class Gameboard extends React.Component {
       currentAnswer: '',
       currentQuestionValue: 0,
       score: 0,
-      board:[]
+      board:[],
+      correct: false 
     
     }
   }
@@ -100,15 +101,24 @@ class Gameboard extends React.Component {
     let correctAnswer = this.state.currentAnswer.replace(/<[^>]*>/g, '')
     correctAnswer = correctAnswer.replace(/\s/g, '')
     correctAnswer = correctAnswer.toLowerCase()
+    correctAnswer = correctAnswer.match(/\w+/g)
+    correctAnswer = correctAnswer.reduce((acc, currentVal) => acc + currentVal )
+    
     userStuff = userStuff.replace(/\s/g, '')
+    userStuff = userStuff.match(/\w+/g)
+    userStuff = userStuff.reduce((acc, currValue) => acc + currValue)
     userStuff = userStuff.toLowerCase()
+    console.log(userStuff)
+    console.log(correctAnswer)
 
     if (correctAnswer === userStuff) {
       
-      this.setState((state,props) => ({score: state.currentQuestionValue + state.score}))
+      this.setState((state,props) => ({score: state.currentQuestionValue + state.score, correct: true}))
+      alert('Well Done!')
     }
     else {
-      this.setState((state,props) => ({score: state.score - state.currentQuestionValue}))
+      this.setState((state,props) => ({score: state.score - state.currentQuestionValue, correct: false}))
+      alert('Sorry, the answer is ' + this.state.currentAnswer)
     }
     console.log('the correct answer')
     console.log(correctAnswer)
@@ -116,9 +126,6 @@ class Gameboard extends React.Component {
     console.log(userStuff)
      this.setState({boardView: true})
      
-     
-     
-
   }
 
   render() {
@@ -136,7 +143,6 @@ class Gameboard extends React.Component {
                 tiles={this.state.board[index].tiles}
                 showQuestion={this.showQuestion}
                 answerQuestion={this.answerQuestion}
-                testMethod={this.testMethod}
                 {...this.props}>
                 {value.Category}
               </Category>))}

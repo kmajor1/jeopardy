@@ -13,10 +13,7 @@ class QuestionReveal extends React.Component {
     }
   }
 
-  
-
   render(){
-     
     return(
       <div className="question-full animated zoomIn delay-0.5s">
         <Container>
