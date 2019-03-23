@@ -87,9 +87,7 @@ class Gameboard extends React.Component {
     
   }
 
-  testMethod() {
-    console.log(this)
-  }
+  
 
   answerQuestion = (userStuff) => (e) => {
     // check the answer by extracting only needed parts of answer 
