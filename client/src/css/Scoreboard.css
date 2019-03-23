@@ -1,13 +1,12 @@
 .scoreboard {
-    border: 2px solid #F46705;
-    background-color: #FFBE00;
-    height: 80%;
+    color: #FFBE00;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px; 
     
 }
 
 p {
     float: left;
-    font-size: 1.5vw;
+    font-size: 2vw;
 }

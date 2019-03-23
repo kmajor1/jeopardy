@@ -24,7 +24,7 @@ class Category extends React.Component {
     return (
       <Fragment>
         <tr>
-          <td className="category-tile question-tile">{this.props.children}</td>
+          <td className="category-tile question-tile">{this.props.children.toUpperCase()}</td>
           {this.props.tiles.map((value,index) => (<Question key={index} cIndex={this.props.cIndex} qIndex={index} question={value.question} answer={value.answer} showQuestion={showQuestion} answerQuestion={this.props.answerQuestion} answered={value.answered}>{this.props.doubleJeopardy ? doubleJeopardy[index] : jeopardy[index]}</Question>))}
           
         </tr>

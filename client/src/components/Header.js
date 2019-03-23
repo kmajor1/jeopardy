@@ -18,10 +18,10 @@ class TestButton extends React.Component{
     return (
       <div className="header animated slideInDown delay-0.5s col-12">
         <div className="row">
-        <div className="col-10">
+        <div className="col-11">
           <Scoreboard score={this.props.score} ></Scoreboard>
         </div>
-        <div className="col-2">
+        <div className="col-1">
           <button className="btn btn-danger" onClick={this.logut}>Logout</button>
         </div>
         </div>
