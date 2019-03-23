@@ -11,11 +11,10 @@
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 3.0vw;
   line-height: 1em; 
-  border-width: 0; 
+  border: 3px solid black;
 }
 
 .category-tile {
   color: white;
-  border-width: 0; 
 }
 
