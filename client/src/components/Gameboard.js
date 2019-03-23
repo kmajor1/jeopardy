@@ -126,7 +126,7 @@ class Gameboard extends React.Component {
     return (
       this.state.boardView ?
         <div>
-        <Header></Header>
+        <Header score={this.state.score}></Header>
         <table className="animated bounceInUp delay-1s">
           <tbody>
             {/* inline function that maps the the categories array in state */}
