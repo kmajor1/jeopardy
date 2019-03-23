@@ -104,11 +104,10 @@ class Gameboard extends React.Component {
     userStuff = userStuff.toLowerCase()
 
     if (correctAnswer === userStuff) {
-      alert('correct!')
+      
       this.setState((state,props) => ({score: state.currentQuestionValue + state.score}))
     }
     else {
-      alert('WRONG!')
       this.setState((state,props) => ({score: state.score - state.currentQuestionValue}))
     }
     console.log('the correct answer')

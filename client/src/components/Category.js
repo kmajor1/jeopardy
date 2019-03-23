@@ -20,6 +20,7 @@ class Category extends React.Component {
 
 
   render(){
+    console.log('rendered category')
     const {showQuestion} = this.props
     return (
       <Fragment>
