@@ -22,7 +22,7 @@ class TestButton extends React.Component{
           <Scoreboard></Scoreboard>
         </div>
         <div className="col-2">
-          <button onClick={this.logut}>Logout</button>
+          <button className="btn btn-danger" onClick={this.logut}>Logout</button>
         </div>
         </div>
       </div>

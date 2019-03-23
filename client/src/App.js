@@ -9,11 +9,6 @@ import awsmobile from './aws-exports'
 import Header from './components/Header'
 // import Scoreboard from './components/Scoreboard';
 
-
-
-  
-
-
 Amplify.configure(awsmobile);
 
 
@@ -34,15 +29,9 @@ class App extends Component {
         <div className="App">
             <Header></Header>
             {/* we should organize this in some sort of grid */}
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-12">
                   <Route exact path='/' render={(props) => (<Gameboard {...props}  doubleJeopardy={this.state.doubleJeopardy}  />)} />
                 </div>
                   {/* <Scoreboard /> */}
-              </div>
-            </div> 
-        </div>
       </Router>
     );
   }

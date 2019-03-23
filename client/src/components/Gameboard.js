@@ -4,7 +4,6 @@ import React from 'react'
 import Category from './Category'
 import QuestionReveal from './QuestionReveal';
 import API from './utils/API'
-import Question from './Question'
 
 
 // import the css 
